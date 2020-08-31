@@ -14,6 +14,7 @@
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Sobrenome</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
                     <th>{{ person.id }}</th>
                     <td>{{ person.first_name }}</td>
                     <td>{{ person.last_name }}</td>
+                    <td><a href="{% url 'people_person_detail_view' person.id %}">Ver mais</a></td>
                 </tr>
             {% endfor %}
         </tbody>
