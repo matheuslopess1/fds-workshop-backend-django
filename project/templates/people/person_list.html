@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Pessoas</title>
+</head>
+<body>
+    <h1>Pessoas</h1>
+    <h2>Listagem</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in object_list %}
+                <tr>
+                    <th>{{ person.id }}</th>
+                    <td>{{ person.first_name }}</td>
+                    <td>{{ person.last_name }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
