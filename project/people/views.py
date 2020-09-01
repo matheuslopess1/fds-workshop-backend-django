@@ -1,14 +1,21 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.shortcuts import render
+from django.http import Http404
 from .models import Person
 
 
-class PersonListView(ListView):
-    model = Person
+def person_list_view(request):
+    people = Person.objects.all()
+    return render(request, 'people/person_list.html', { 'object_list': people })
 
 
-class PersonDetailView(DetailView):
-    model = Person
+def person_detail_view(request, pk):
+    try:
+        person = Person.objects.get(pk=pk)
+        return render(request, 'people/person_detail.html', {'object': person})
+    except Person.DoesNotExist:
+        raise Http404('Pessoa não encontrada')
 
 
 class PersonCreateView(CreateView):
