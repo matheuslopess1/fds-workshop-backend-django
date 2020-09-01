@@ -1,22 +1,22 @@
 {% extends "people/person_base.html" %}
-{% block title %}
-    Listagem
-{% endblock %}
+{% block title %} Listagem {% endblock %}
 {% block content %}
-    <a href="{% url 'people_person_create_view' %}">Criar Pessoa</a>
-    <table>
+    <nav class="nav">
+        <a class="nav-link" href="{% url 'people_person_create_view' %}">Criar Pessoa</a>
+    </nav>
+    <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Sobrenome</th>
-                <th>Ações</th>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
             {% for person in object_list %}
                 <tr>
-                    <th>{{ person.id }}</th>
+                    <th scope="row">{{ person.id }}</th>
                     <td>{{ person.first_name }}</td>
                     <td>{{ person.last_name }}</td>
                     <td><a href="{% url 'people_person_detail_view' person.id %}">Ver mais</a></td>

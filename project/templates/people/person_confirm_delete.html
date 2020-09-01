@@ -1,9 +1,9 @@
 {% extends "people/person_base.html" %}
-{% block title %}
-    Confirmação de Exclusão
-{% endblock %}
+{% block title %} Confirmação de Exclusão {% endblock %}
 {% block content %}
-    <a href="{% url 'people_person_detail_view' object.id %}">Voltar para Detalhe</a>
+    <nav class="nav">
+        <a href="{% url 'people_person_detail_view' object.id %}">Voltar para Detalhe</a>
+    </nav>
     <form method="post">
         {% csrf_token %}
         <p>Você tem certeza que quer deletar "{{ object }}"?</p>

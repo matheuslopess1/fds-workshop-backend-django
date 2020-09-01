@@ -1,17 +1,22 @@
 {% extends "people/person_base.html" %}
-{% block title %}
-    Detalhe
-{% endblock %}
+{% block title %} Detalhe {% endblock %}
 {% block content %}
-    <a href="{% url 'people_person_list_view' %}">Voltar para Listagem</a>
-    <dl>
-        <dt>ID</dt>
-        <dd>{{ object.id }}</dd>
-        <dt>Nome</dt>
-        <dd>{{ object.first_name }}</dd>
-        <dt>Sobrenome</dt>
-        <dd>{{ object.last_name }}</dd>
-        <dt>Ações</dt>
-        <dd><a href="{% url 'people_person_update_view' object.id %}">Editar</a>  | <a href="{% url 'people_person_delete_view' object.id %}">Excluir</a></dd>
+    <nav class="nav">
+        <a class="nav-link" href="{% url 'people_person_list_view' %}">Voltar para Listagem</a>
+    </nav>
+    <dl class="row">
+        <dt class="col-3">ID</dt>
+        <dd class="col-9">{{ object.id }}</dd>
+        <dt class="col-3">Nome</dt>
+        <dd class="col-9">{{ object.first_name }}</dd>
+        <dt class="col-3">Sobrenome</dt>
+        <dd class="col-9">{{ object.last_name }}</dd>
+        <dt class="col-3">Ações</dt>
+        <dd class="col-9">
+            <nav class="nav">
+                <a class="nav-link px-0 mr-3" href="{% url 'people_person_update_view' object.id %}">Editar</a>
+                <a class="nav-link px-0 text-danger" href="{% url 'people_person_delete_view' object.id %}">Excluir</a>
+            </nav>
+        </dd>
     </dl>
 {% endblock %}
