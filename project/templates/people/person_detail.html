@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD de Pessoas</title>
-</head>
-<body>
-    <h1>Pessoas</h1>
-    <h2>Detalhe</h2>
+{% extends "people/person_base.html" %}
+{% block title %}
+    Detalhe
+{% endblock %}
+{% block content %}
     <a href="{% url 'people_person_list_view' %}">Voltar para Listagem</a>
     <dl>
         <dt>ID</dt>
@@ -19,5 +14,4 @@
         <dt>Ações</dt>
         <dd><a href="{% url 'people_person_update_view' object.id %}">Editar</a>  | <a href="{% url 'people_person_delete_view' object.id %}">Excluir</a></dd>
     </dl>
-</body>
-</html>
+{% endblock %}

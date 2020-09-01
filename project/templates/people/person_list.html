@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD de Pessoas</title>
-</head>
-<body>
-    <h1>Pessoas</h1>
-    <h2>Listagem</h2>
+{% extends "people/person_base.html" %}
+{% block title %}
+    Listagem
+{% endblock %}
+{% block content %}
     <a href="{% url 'people_person_create_view' %}">Criar Pessoa</a>
     <table>
         <thead>
@@ -29,5 +24,4 @@
             {% endfor %}
         </tbody>
     </table>
-</body>
-</html>
+{% endblock %}
