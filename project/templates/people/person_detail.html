@@ -17,7 +17,7 @@
         <dt>Sobrenome</dt>
         <dd>{{ object.last_name }}</dd>
         <dt>Ações</dt>
-        <dd>Editar  | Excluir</dd>
+        <dd><a href="{% url 'people_person_update_view' object.id %}">Editar</a>  | Excluir</dd>
     </dl>
 </body>
 </html>

@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Person
 
 
@@ -11,5 +11,10 @@ class PersonDetailView(DetailView):
 
 
 class PersonCreateView(CreateView):
+    model = Person
+    fields = '__all__'
+
+
+class PersonUpdateView(UpdateView):
     model = Person
     fields = '__all__'
