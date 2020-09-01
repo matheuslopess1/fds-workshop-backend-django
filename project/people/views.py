@@ -1,4 +1,5 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 from .models import Person
 
 
@@ -18,3 +19,8 @@ class PersonCreateView(CreateView):
 class PersonUpdateView(UpdateView):
     model = Person
     fields = '__all__'
+
+
+class PersonDeleteView(DeleteView):
+    model = Person
+    success_url = reverse_lazy('people_person_list_view')

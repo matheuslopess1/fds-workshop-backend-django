@@ -8,3 +8,6 @@ class Person(models.Model):
 
     def get_absolute_url(self):
         return reverse('people_person_detail_view', kwargs={'pk': self.pk})
+
+    def __str__(self):
+        return '{} {}'.format(self.first_name, self.last_name)

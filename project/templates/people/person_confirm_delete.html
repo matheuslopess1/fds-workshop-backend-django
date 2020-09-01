@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Pessoas</title>
+</head>
+<body>
+    <h1>Pessoas</h1>
+    <h2>Confirmação de Exclusão</h2>
+    <a href="{% url 'people_person_detail_view' object.id %}">Voltar para Detalhe</a>
+    <form method="post">
+        {% csrf_token %}
+        <p>Você tem certeza que quer deletar "{{ object }}"?</p>
+        <input type="submit" value="Confirmar">
+    </form>
+</body>
+</html>
