@@ -8,7 +8,11 @@
 <body>
     <h1>Pessoas</h1>
     <h2>Detalhe</h2>
+    {% if object %}
+    <a href="{% url 'people_person_detail_view' object.id %}">Voltar para Detalhe</a>
+    {% else %}
     <a href="{% url 'people_person_list_view' %}">Voltar para Listagem</a>
+    {% endif %}
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
